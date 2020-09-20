@@ -1,6 +1,7 @@
 package com.security.oauth.controller;
 
 import com.security.oauth.model.User;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -13,6 +14,7 @@ import java.util.Map;
 @RestController
 //Enabling Swagger UI for root directory access
 //URL/swagger-ui.html   URL/v2/api-docs
+@Api(value = "Common Controller")
 public class HomeController {
 
     @RequestMapping("/user")
