@@ -12,18 +12,11 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@RestController
+@EnableSwagger2
 public class OauthApplication extends WebSecurityConfigurerAdapter {
-
-	@RequestMapping("/user")
-	public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
-		System.out.println(principal);
-		return Collections.singletonMap("name", principal.getAttribute("name"));
-	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
