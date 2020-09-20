@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -54,6 +55,20 @@ public class OauthApplication extends WebSecurityConfigurerAdapter {
 				.select()
 				.paths(PathSelectors.ant("/*"))
 				.apis(RequestHandlerSelectors.basePackage("com.security.oauth"))
-				.build();
+				.build()
+				.apiInfo(apiDetails());
+	}
+	private ApiInfo apiDetails(){
+		return new ApiInfo(
+				"OAuth2 Login API",
+				"Simple Documentation",
+				"1.0",
+				"Open to all",
+				new springfox.documentation.service.Contact("Sohan Bappy","http://sohanbappy.wordpress.com",
+						"sohanbappy@gmail.com"),
+				"API Licencense goes to SB",
+				"http://sohanbappy.wordpress.com",
+				Collections.emptyList()
+		);
 	}
 }
