@@ -1,5 +1,6 @@
 package com.security.oauth.controller;
 
+import com.security.oauth.model.User;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -21,6 +22,18 @@ public class HomeController {
     public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
         System.out.println(principal);
         return Collections.singletonMap("name", principal.getAttribute("name"));
+    }
+
+    @RequestMapping("/getLoggerInUser")
+    @ApiOperation(value = "Get LoggedIn User Info from OAuth2",
+            notes = "getting user info of logged in user",
+            response = User.class)
+    public User getLoggerInUserInfo(@AuthenticationPrincipal OAuth2User principal) {
+        User user = new User();
+        user.setId(principal.getAttribute("id"));
+        user.setName(principal.getAttribute("name"));
+        user.setMail(principal.getAttribute("email"));
+        return user;
     }
 
 }
