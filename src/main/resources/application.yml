@@ -39,8 +39,7 @@ spring:
           facebook:
             clientId: 972232863269564
             clientSecret: 15750b42096c7ac6cd477eb6f6009a6e
-    #fb
-
+    #fb info
     #          google:
     #            clientId: -----
     #            clientSecret: ------
