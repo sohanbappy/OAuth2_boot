@@ -35,13 +35,37 @@ spring:
           github:
             clientId: 37bb1d86bd9894ad5de9
             clientSecret: 58e3a60fb25099917afc8113c56ff33820efc0c8
-#github callback URL - http://localhost:8080/login/oauth2/code/github   (On APP)
+          #github callback URL - http://localhost:8080/login/oauth2/code/github   (On APP)
           facebook:
             clientId: 972232863269564
             clientSecret: 15750b42096c7ac6cd477eb6f6009a6e
-#fb
+    #fb
 
-#          google:
-#            clientId: -----
-#            clientSecret: ------
-#google
+    #          google:
+    #            clientId: -----
+    #            clientSecret: ------
+    #google
+
+    #    jpa:
+    #      database: POSTGRESQL
+    #      show-sql: true
+    #      hibernate:
+    #        ddl-auto: create-drop
+    #      datasource:
+    #        platform: postgres
+    #        url: jdbc:postgresql://localhost:5432/bappy
+    #        username: postgres
+    #        password: postgres
+    #        driverClassName: org.postgresql.Driver
+
+    jpa:
+      database: POSTGRESQL
+      show-sql: true
+      hibernate:
+        ddl-auto: create-drop
+#      datasource:
+#        platform: postgres
+#        url: jdbc:postgresql://localhost:5432/bappy
+#        username: postgres
+#        password: postgres
+#        driverClassName: org.postgresql.Driver

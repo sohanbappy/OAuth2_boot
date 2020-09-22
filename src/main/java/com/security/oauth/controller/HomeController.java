@@ -1,8 +1,10 @@
 package com.security.oauth.controller;
 
 import com.security.oauth.model.User;
+import com.security.oauth.repo.UserRepo;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,9 @@ import java.util.Map;
 //URL/swagger-ui.html   URL/v2/api-docs
 @Api(value = "Common Controller")
 public class HomeController {
+
+    @Autowired
+    UserRepo userRepo;
 
     @RequestMapping("/user")
     @ApiOperation(value = "Get User Info from OAuth2",
@@ -35,6 +40,7 @@ public class HomeController {
         user.setId(principal.getAttribute("id"));
         user.setName(principal.getAttribute("name"));
         user.setMail(principal.getAttribute("email"));
+        userRepo.save(user);
         return user;
     }
 
