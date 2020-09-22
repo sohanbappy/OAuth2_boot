@@ -3,16 +3,11 @@ package com.security.oauth.model;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @ApiModel(description = "Details about User")
-@Entity
 public class User {
 
-    @Id
-    @GeneratedValue
+
     private int Id;
     private String name;
     @ApiModelProperty(notes = "User's Email")
