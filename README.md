@@ -4,5 +4,9 @@
 Login Page provided for multiple OAuth Login Option
 
 
-#fb
-#github
+* fb
+* github
+
+
+### Deployed in heroku
+
